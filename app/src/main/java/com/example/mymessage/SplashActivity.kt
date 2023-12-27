@@ -44,10 +44,6 @@ class SplashActivity : ComponentActivity() {
 @Composable
 fun Splash() {
     context = LocalContext.current
-    val sharedPreference = context.getSharedPreferences("sharedChat", Context.MODE_PRIVATE)
-    val registered =
-        context.getSharedPreferences("sharedChat", Context.MODE_PRIVATE)
-            .getBoolean("isLogged", false)
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -56,17 +52,7 @@ fun Splash() {
         Text(text = "Welcome to my Chat", fontSize = 20.sp)
 
 
-        if (registered == true) {
-
-            Intent(context, ChatsActivity::class.java).putExtra("uid", "")
-            context.startActivity(Intent(context, ChatsActivity::class.java))
-
-
-        } else {
-
-            context.startActivity(Intent(context, MainActivity::class.java))
-
-        }
+       context.startActivity(Intent(context,MainActivity::class.java))
 
     }
 

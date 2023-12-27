@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
                     auth = FirebaseAuth.getInstance()
                     context = LocalContext.current
                     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken("158053140209-0qbat8b2r9rop9rvvorlhqbd313vujb5.apps.googleusercontent.com")
+                        .requestIdToken("29040589620-ea6tnndi09eu0grbeig0ack7o0b71oen.apps.googleusercontent.com")
                         .requestEmail()
                         .build()
                     val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
@@ -113,16 +113,6 @@ class MainActivity : ComponentActivity() {
                         user?.email,
                         user?.photoUrl.toString()
                     )
-                    sharedPreferences =
-                        context!!.getSharedPreferences("myShared", Context.MODE_PRIVATE)
-
-                    editor = sharedPreferences.edit()
-                    editor.putBoolean("isLogged", true)
-                    editor.putString("userID", userData.uid)
-                    editor.putString("uPhoto", userData.photo)
-                    editor.putString("uName", userData.name)
-                    editor.putString("uEmail", userData.email)
-                    editor.apply()
                     Toast.makeText(context, "Successfully signed in!", Toast.LENGTH_SHORT)
                         .show()
                     val reference = Firebase.database.reference.child("users")

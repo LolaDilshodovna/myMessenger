@@ -61,7 +61,7 @@ class XabarActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken("158053140209-0qbat8b2r9rop9rvvorlhqbd313vujb5.apps.googleusercontent.com")
+                        .requestIdToken("29040589620-ea6tnndi09eu0grbeig0ack7o0b71oen.apps.googleusercontent.com")
                         .requestEmail()
                         .build()
 

@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -36,6 +37,8 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.mymessage.module.UserData
 import com.example.mymessage.ui.theme.MyMessageTheme
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -53,6 +56,12 @@ class ChatsActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val uid = intent.getStringExtra("uid")
+
+                    val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestIdToken("29040589620-ea6tnndi09eu0grbeig0ack7o0b71oen.apps.googleusercontent.com")
+                        .requestEmail()
+                        .build()
+                    val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
                     val userList = remember {
                         mutableStateListOf(UserData())
@@ -113,6 +122,11 @@ class ChatsActivity : ComponentActivity() {
                                 }
                             }
                         }
+
+                        Button(onClick = { mGoogleSignInClient.signOut() }) {
+
+                        }
+
                     }
                 }
             }
