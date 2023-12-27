@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">myMessage</string>
+    <string name="title_activity_chats">ChatsActivity</string>
+    <string name="title_activity_xabar">XabarActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>
